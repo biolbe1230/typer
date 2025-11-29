@@ -14,12 +14,14 @@ export interface Position {
   y: number;
 }
 
-export enum AppState {
-  IDLE = 'IDLE',
-  TYPING = 'TYPING', // User is typing input
-  GENERATING = 'GENERATING', // AI is thinking
-  PRINTING = 'PRINTING', // Animation of printing
-}
+export const AppState = {
+  IDLE: 'IDLE',
+  TYPING: 'TYPING',
+  GENERATING: 'GENERATING',
+  PRINTING: 'PRINTING',
+} as const;
+export type AppState = (typeof AppState)[keyof typeof AppState];
+
 
 export const DESK_WIDTH = 2000;
 export const DESK_HEIGHT = 2000;

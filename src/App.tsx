@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import type { PaperNote } from './types';
 import { AppState } from './types';
 import { TypewriterMachine } from './components/TypewriterMachine';
@@ -29,7 +29,7 @@ export default function App() {
     setPapers([welcomeNote]);
   }, []);
 
-  const handlePrint = useCallback((paperHeight: number, startRect: DOMRect) => {
+  const handlePrint = useCallback((_paperHeight: number, startRect: DOMRect) => {
     if (!inputText.trim()) return;
     
     // Animation & Spawn Logic:
