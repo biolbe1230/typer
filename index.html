@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetroType - Fix Beeper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=VT323&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden; /* Prevent scrolling of the desk */
+        background-color: #2d3748;
+      }
+      .font-typewriter {
+        font-family: 'Special Elite', monospace;
+      }
+      .font-digital {
+        font-family: 'VT323', monospace;
+      }
+      /* Custom Scrollbar for the paper area */
+      .paper-scroll::-webkit-scrollbar {
+        width: 8px;
+      }
+      .paper-scroll::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .paper-scroll::-webkit-scrollbar-thumb {
+        background-color: #cbd5e0;
+        border-radius: 4px;
+      }
+
+      /* Animations for Typewriter */
+      @keyframes shake {
+        0% { transform: translate(1px, 1px) rotate(0deg); }
+        10% { transform: translate(-1px, -2px) rotate(-0.5deg); }
+        20% { transform: translate(-2px, 0px) rotate(0.5deg); }
+        30% { transform: translate(2px, 2px) rotate(0deg); }
+        40% { transform: translate(1px, -1px) rotate(0.5deg); }
+        50% { transform: translate(-1px, 2px) rotate(-0.5deg); }
+        60% { transform: translate(-2px, 1px) rotate(0deg); }
+        70% { transform: translate(2px, 1px) rotate(-0.5deg); }
+        80% { transform: translate(-1px, -1px) rotate(0.5deg); }
+        90% { transform: translate(1px, 2px) rotate(0deg); }
+        100% { transform: translate(1px, -2px) rotate(-0.5deg); }
+      }
+
+      @keyframes rumble {
+        0% { transform: translate(0, 0); }
+        25% { transform: translate(-1px, 1px); }
+        50% { transform: translate(1px, -1px); }
+        75% { transform: translate(-1px, -1px); }
+        100% { transform: translate(1px, 1px); }
+      }
+
+      @keyframes eject {
+        0% { transform: translateY(120px); opacity: 0; }
+        20% { opacity: 1; }
+        100% { transform: translateY(0); opacity: 1; }
+      }
+
+      .animate-shake {
+        animation: shake 0.2s cubic-bezier(.36,.07,.19,.97) both;
+      }
+
+      .animate-rumble {
+        animation: rumble 0.1s infinite;
+      }
+
+      .animate-eject {
+        animation: eject 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      }
+    </style>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
